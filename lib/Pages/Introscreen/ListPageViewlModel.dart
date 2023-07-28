@@ -1,22 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:naviandroute/Pages/LoginPage.dart';
 import 'package:naviandroute/Storage/PersistentMem.dart';
 import 'package:naviandroute/main.dart';
 
+// Model class to represent list items
 @immutable
 class listView {
   final String title;
   final String description;
   final String imageUrl;
 
-  const listView(
-      {required this.title, required this.description, required this.imageUrl});
+  const listView({
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+  });
 }
 
-class ListPageViewModel extends StatelessWidget {
+// ListPageViewModel class to build an introduction screen
+class ListPageViewModel extends StatefulWidget {
+  @override
+  _ListPageViewModelState createState() => _ListPageViewModelState();
+}
+
+class _ListPageViewModelState extends State<ListPageViewModel> {
   bool introComplete = false;
   var appName = "Remme: Remember me";
-  List<PageViewModel> pages = [
+
+  void setIntroComplete() {
+    setState(() {
+      introComplete = true;
+    });
+  }
+
+  // List of PageViewModel to display introduction pages
+  final List<PageViewModel> pages = [
     PageViewModel(
       title: "Page 1",
       body: "Page 1 - Description",
@@ -56,35 +75,34 @@ class ListPageViewModel extends StatelessWidget {
       ),
     ),
   ];
-  Widget getPage() {
-    if (introComplete) {
-      return const MyHomePage(title: "title");
-    } else {
-      return ListPageViewModel();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(appName),
-      ),
-      body: IntroductionScreen(
-        pages: pages,
-        onDone: () {
-          introComplete = true;
+    if (introComplete) {
+      return const LoginPage();
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(appName),
+        ),
+        body: IntroductionScreen(
+          pages: pages,
+          onDone: () {
+            setIntroComplete();
 
-          Navigator.pushReplacement(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => const MyHomePage(title: "title")));
-        },
-        showSkipButton: true,
-        showNextButton: false,
-        skip: const Text("Skip"),
-        done: const Text("Done"),
-      ),
-    );
+                builder: (context) => const LoginPage(),
+              ),
+            );
+          },
+          showSkipButton: true,
+          showNextButton: false,
+          skip: const Text("Skip"),
+          done: const Text("Done"),
+        ),
+      );
+    }
   }
 }
