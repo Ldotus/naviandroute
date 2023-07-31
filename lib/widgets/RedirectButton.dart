@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:naviandroute/Pages/Todo.dart';
-import 'package:naviandroute/Pages/Routes.dart';
 import 'package:naviandroute/Pages/Settings.dart';
 
 class RedirectButton extends StatefulWidget {
@@ -27,7 +25,7 @@ class _RedirectButtonState extends State<RedirectButton> {
       },
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(Colors.green)),
-      child: Text(''),
+      child: const Text(''),
     );
   }
 }

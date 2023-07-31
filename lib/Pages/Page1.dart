@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naviandroute/widgets/CustomDrawer.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({Key? key}) : super(key: key);
@@ -49,6 +50,7 @@ class _Page1State extends State<Page1> {
           ),
         ),
       ),
+      drawer: const CustomDrawer(),
     );
   }
 }

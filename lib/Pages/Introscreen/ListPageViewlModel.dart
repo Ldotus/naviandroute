@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:naviandroute/Pages/LoginPage.dart';
-import 'package:naviandroute/Storage/PersistentMem.dart';
-import 'package:naviandroute/main.dart';
 
 // Model class to represent list items
 @immutable
@@ -20,6 +18,8 @@ class listView {
 
 // ListPageViewModel class to build an introduction screen
 class ListPageViewModel extends StatefulWidget {
+  const ListPageViewModel({super.key});
+
   @override
   _ListPageViewModelState createState() => _ListPageViewModelState();
 }

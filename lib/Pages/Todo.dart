@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../widgets/CustomDrawer.dart';
 
 class Todo extends StatefulWidget {
   const Todo({Key? key}) : super(key: key);
@@ -29,18 +32,19 @@ class _TodoState extends State<Todo> {
                 onPressed: null,
                 icon: Icon(Icons.add_moderator_rounded),
               ),
+              const Expanded(
+                child: TextField(),
+              ),
               Radio(
                 value: false,
                 groupValue: true,
                 onChanged: (value) => true,
               ),
-              const Expanded(
-                child: TextField(),
-              ),
             ],
           ),
         ),
       ),
+      drawer: const CustomDrawer(),
     );
   }
 }

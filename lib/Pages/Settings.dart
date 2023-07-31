@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naviandroute/widgets/CustomDrawer.dart';
 import 'package:naviandroute/widgets/redirectButton.dart';
 import 'dart:core';
 
@@ -44,6 +45,7 @@ class _SettingsState extends State<Settings> {
           )
         ],
       ),
+      drawer: const CustomDrawer(),
     );
   }
 }

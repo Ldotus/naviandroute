@@ -9,8 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,14 +60,15 @@ class _LoginPageState extends State<LoginPage> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text('Invalid Credentials'),
-                          content: Text('Please enter valid credentials.'),
+                          title: const Text('Invalid Credentials'),
+                          content:
+                              const Text('Please enter valid credentials.'),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop(); // Close the dialog
                               },
-                              child: Text('OK'),
+                              child: const Text('OK'),
                             ),
                           ],
                         );
