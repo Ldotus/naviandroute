@@ -10,7 +10,6 @@ class CustomDrawer extends StatelessWidget {
     String email = "$name@jaja.com";
     return Drawer(
       backgroundColor: Colors.amber,
-      width: 200,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
