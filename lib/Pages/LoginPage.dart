@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:naviandroute/Utility/NavigateTo.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/Background.png'),
+            image: AssetImage('lib/assets/Rengoku.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -50,11 +50,11 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   // Perform login logic here
-                  String username = _usernameController.text;
-                  String password = _passwordController.text;
+                  String username = "ldot"; //_usernameController.text;
+                  String password = "pwd"; //_passwordController.text;
                   // Add your login validation and navigation logic here
                   if (username == "ldot" && password == "pwd") {
-                    GoRouter.of(context).go("/Todo");
+                    NavigateTo.navigateToDashboard(context);
                   } else {
                     showDialog(
                       context: context,
